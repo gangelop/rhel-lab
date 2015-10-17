@@ -1,0 +1,9 @@
+---
+
+- name: basic packages
+  yum: name={{ item }} state=present
+  with_items:
+      - vim
+      - strace
+      - tcpdump
+      - tmux
