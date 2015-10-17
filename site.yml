@@ -11,3 +11,9 @@
 
   roles:
     - iscsi_target
+
+- name: apply iscsi initiator config
+  hosts: iscsi_initiators
+
+  roles:
+    - iscsi_initiator

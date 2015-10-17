@@ -3,3 +3,6 @@ node2
 
 [iscsi_target]
 node1
+
+[iscsi_initiators]
+node2

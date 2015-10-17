@@ -1,0 +1,4 @@
+---
+
+- name: iscsi initiator packages
+  yum: name=iscsi-initiator-utils state=present
