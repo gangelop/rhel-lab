@@ -1,0 +1,4 @@
+---
+
+- name: install iscsi target packages
+  yum: name=targetcli state=present

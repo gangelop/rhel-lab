@@ -5,3 +5,9 @@
 
   roles:
     - common
+
+- name: apply iscsi target config
+  hosts: iscsi_target
+
+  roles:
+    - iscsi_target
