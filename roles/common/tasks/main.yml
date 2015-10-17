@@ -8,6 +8,7 @@
       - strace
       - tcpdump
       - tmux
+  tags: packages
 
 - name: dotfiles
   copy: src=tmux.conf dest=/root/.tmux.conf
