@@ -5,6 +5,8 @@
 
 - name: ensure nfs export directory is present
   file: path=/nfsdata state=directory
+        owner=nfsnobody
+        group=nfsnobody
 
 - name: apply nfs exports
   copy: src=exports dest=/etc/exports
