@@ -19,3 +19,10 @@
 
 - name: start/enable ntpd service
   service: name=ntpd state=started enabled=true
+
+- name: apply sshd config
+  copy: src=sshd_config dest=/etc/ssh/sshd_config
+        backup=yes
+  notify:
+      - reload sshd
+  tags: ssh
