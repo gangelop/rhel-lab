@@ -1,4 +1,7 @@
 ---
 
 - name: iscsi initiator packages
-  yum: name=iscsi-initiator-utils state=present
+  yum: name={{ item }} state=present
+  with_items:
+      - iscsi-initiator-utils
+      - device-mapper-multipath
