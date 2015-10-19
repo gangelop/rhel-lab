@@ -1,7 +1,7 @@
 node1
 node2
 
-[iscsi_target]
+[storage]
 node1
 
 [iscsi_initiators]

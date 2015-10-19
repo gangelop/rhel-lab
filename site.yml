@@ -6,8 +6,8 @@
   roles:
     - common
 
-- name: apply iscsi target config
-  hosts: iscsi_target
+- name: apply storage server config (iscsi,nfs)
+  hosts: storage
 
   roles:
     - iscsi_target
