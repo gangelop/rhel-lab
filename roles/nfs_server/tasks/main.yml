@@ -5,8 +5,6 @@
 
 - name: ensure nfs export directory is present
   file: path=/nfsdata state=directory
-  notify:
-      - reload nfs-server
 
 - name: apply nfs exports
   copy: src=exports dest=/etc/exports
