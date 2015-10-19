@@ -2,3 +2,22 @@
 
 - name: ensure nfs-utils package present
   yum: name=nfs-utils state=present
+
+- name: ensure nfs export directory is present
+  file: path=/nfsdata state=directory
+  notify:
+      - reload nfs-server
+
+- name: apply nfs exports
+  copy: src=exports dest=/etc/exports
+        backup=yes
+  notify:
+      - reload nfs-server
+
+- name: ensure nfs-server is started/enabled
+  service: name=nfs-server state=started enabled=yes
+
+- name: allow nfs from firewalld
+  firewalld:  service=nfs state=enabled
+              permanent=yes
+              immediate=yes
