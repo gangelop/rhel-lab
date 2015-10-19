@@ -20,8 +20,8 @@
 - name: ensure nfs-related services are started/enabled
   service: name={{ item }} state=started enabled=yes
   with_items:
-      - nfs-server
       - rpcbind
+      - nfs-server
   tags: nfs-server
 
 - name: allow nfs from firewalld
