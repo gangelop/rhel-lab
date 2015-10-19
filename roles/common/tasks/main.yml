@@ -26,3 +26,7 @@
   notify:
       - reload sshd
   tags: ssh
+
+- name: ensure sshd is enabled
+  service: name=sshd enabled=yes state=started
+  tags: ssh
