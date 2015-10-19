@@ -11,6 +11,7 @@
 
   roles:
     - iscsi_target
+    - nfs_server
 
 - name: apply iscsi initiator config
   hosts: iscsi_initiators
