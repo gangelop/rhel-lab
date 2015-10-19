@@ -15,6 +15,7 @@
 
 - name: dotfiles
   copy: src=tmux.conf dest=/root/.tmux.conf
+        backup=yes
 
 - name: start/enable ntpd service
   service: name=ntpd state=started enabled=true
