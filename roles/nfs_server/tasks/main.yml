@@ -14,8 +14,11 @@
   notify:
       - reload nfs-server
 
-- name: ensure nfs-server is started/enabled
-  service: name=nfs-server state=started enabled=yes
+- name: ensure nfs-related services are started/enabled
+  service: name={{ item }} state=started enabled=yes
+  with_items:
+      - nfs-server
+      - rpcbind
 
 - name: allow nfs from firewalld
   firewalld:  service=nfs state=enabled
