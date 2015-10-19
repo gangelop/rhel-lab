@@ -2,6 +2,3 @@
 
 - name: ensure nfs-utils package present
   yum: name=nfs-utils state=present
-  tags:
-      - nfs
-      - storage
