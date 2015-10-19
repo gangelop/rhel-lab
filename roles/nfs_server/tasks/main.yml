@@ -2,15 +2,18 @@
 
 - name: ensure nfs-utils package present
   yum: name=nfs-utils state=present
+  tags: nfs-server
 
 - name: ensure nfs export directory is present
   file: path=/nfsdata state=directory
         owner=nfsnobody
         group=nfsnobody
+  tags: nfs-server
 
 - name: apply nfs exports
   copy: src=exports dest=/etc/exports
         backup=yes
+  tags: nfs-server
   notify:
       - reload nfs-server
 
@@ -19,8 +22,10 @@
   with_items:
       - nfs-server
       - rpcbind
+  tags: nfs-server
 
 - name: allow nfs from firewalld
   firewalld:  service=nfs state=enabled
               permanent=yes
               immediate=yes
+  tags: nfs-server
