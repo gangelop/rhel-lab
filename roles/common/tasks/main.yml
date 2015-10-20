@@ -17,6 +17,11 @@
   copy: src=tmux.conf dest=/root/.tmux.conf
         backup=yes
 
+- name: tree bash alias
+  lineinfile: dest=/root/.bashrc
+              line='alias tree="tree -C"'
+              insertafter="^alias"
+
 - name: start/enable ntpd service
   service: name=ntpd state=started enabled=true
 
