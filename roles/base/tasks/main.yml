@@ -12,6 +12,7 @@
       - tcpdump
       - tmux
       - ntp
+      - pciutils
   tags: packages
 
 - name: dotfiles
