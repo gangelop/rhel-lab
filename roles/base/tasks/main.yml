@@ -38,3 +38,19 @@
 - name: ensure sshd is enabled
   service: name=sshd enabled=yes state=started
   tags: ssh
+
+- name: remove 'rhgb' from grub
+  lineinfile: dest=/etc/default/grub
+      backrefs=yes
+      regexp='(.*) rhgb(.*)'
+      line='\1\2'
+  notify: regenerate grub2 configuration
+  tags: grub
+
+- name: remove 'quiet' from grub
+  lineinfile: dest=/etc/default/grub
+      backrefs=yes
+      regexp='(.*) quiet(.*)'
+      line='\1\2'
+  notify: regenerate grub2 configuration
+  tags: grub

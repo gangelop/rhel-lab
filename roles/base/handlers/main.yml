@@ -2,3 +2,6 @@
 
 - name: reload sshd
   service: name=sshd state=reloaded
+
+- name: regenerate grub2 configuration
+  command: grub2-mkconfig --output=/boot/grub2/grub.cfg
