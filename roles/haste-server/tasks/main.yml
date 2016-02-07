@@ -16,6 +16,12 @@
        dest=/opt/haste-server/
   tags: git
 
+- name: make sure we have done 'npm install'
+  command: npm install
+  args:
+      chdir: /opt/haste-server
+      creates: /opt/haste-server/node_modules
+
 - name: systemd service file present
   copy: src=haste-server.service
         dest=/etc/systemd/system/haste-server.service
