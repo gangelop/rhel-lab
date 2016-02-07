@@ -18,3 +18,9 @@
 
   roles:
     - iscsi_initiator
+
+- name: configure haste-server
+  hosts: haste
+
+  roles:
+    - epel

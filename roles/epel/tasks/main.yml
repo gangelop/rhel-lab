@@ -1,0 +1,19 @@
+---
+
+  # we will use yum-config-manager until the ansible "yumrepo" module
+  # is available in v2.1
+- name: ensure yum-config-manager present
+  yum: name=yum-utils state=present
+  tags: epel
+
+- name: ensure optional and extras repos are enabled
+  command: yum-config-manager --enable rhel-7-server-{{ item }}-rpms
+  with_items:
+      - optional
+      - extras
+  tags: epel
+
+- name: install epel rpm
+  yum: name=https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+      state=present
+  tags: epel
