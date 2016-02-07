@@ -14,7 +14,6 @@
 
 - name: enable overcommit_memory for redis
   sysctl: name=vm.overcommit_memory value=1 state=present
-  notify: restart redis server
 
 - name: enable redis server
   service: name=redis enabled=yes state=started
