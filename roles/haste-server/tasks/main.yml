@@ -29,6 +29,11 @@
        update=no
   tags: git
 
+# add systemd service
+- name: systemd service file present
+  copy: src=haste-server.service
+        dest=/etc/systemd/system/haste-server.service
+
 # Does 'npm install' only the first time
 - name: make sure we have done 'npm install'
   command: npm install
@@ -40,7 +45,3 @@
   copy: src=config.js
         dest=/opt/haste-server/config.js
   notify: restart haste-server
-
-- name: systemd service file present
-  copy: src=haste-server.service
-        dest=/etc/systemd/system/haste-server.service
