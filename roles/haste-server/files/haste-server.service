@@ -1,0 +1,14 @@
+[Unit]
+Requires=redis.service
+After=redis.service
+
+[Service]
+ExecStart=/usr/bin/node /opt/haste-server/server.js
+Restart=always
+StandardOutput=syslog
+SyslogIdentifier=hastebin
+User=root
+WorkingDirectory=/opt/haste-server
+
+[Install]
+WantedBy=multi-user.target
