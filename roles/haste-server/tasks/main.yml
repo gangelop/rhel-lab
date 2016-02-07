@@ -30,6 +30,11 @@
       chdir: /opt/haste-server
       creates: /opt/haste-server/node_modules
 
+- name: configuration for haste-server
+  copy: src=config.js
+        dest=/opt/haste-server/config.js
+  notify: restart haste-server
+
 - name: systemd service file present
   copy: src=haste-server.service
         dest=/etc/systemd/system/haste-server.service
