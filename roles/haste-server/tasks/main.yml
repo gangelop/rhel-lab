@@ -14,11 +14,16 @@
   service: name=redis enabled=yes state=started
 
 # haste-server
+#
+# Clones the repo and doesn't pull if it is
+# already cloned.
 - name: get latest haste-server from GitHub
   git: repo=https://github.com/seejohnrun/haste-server
        dest=/opt/haste-server/
+       update=no
   tags: git
 
+# Does 'npm install' only the first time
 - name: make sure we have done 'npm install'
   command: npm install
   args:
