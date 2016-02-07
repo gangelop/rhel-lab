@@ -44,3 +44,9 @@
   copy: src=config.js
         dest=/opt/haste-server/config.js
   notify: restart haste-server
+
+- name: allow http (80/tcp) in firewalld
+  firewalld: service=http permanent=true state=enabled
+
+- name: start and enable haste-server
+  service: name=haste-server enabled=yes state=started
