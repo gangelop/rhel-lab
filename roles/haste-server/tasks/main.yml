@@ -1,5 +1,6 @@
 ---
 
+# dependencies
 - name: install redis, nodejs, npm
   yum: name={{ item }} state=present
   with_items:
@@ -8,9 +9,11 @@
       - npm
       - git
 
+# redis
 - name: enable redis server
   service: name=redis enabled=yes state=started
 
+# haste-server
 - name: get latest haste-server from GitHub
   git: repo=https://github.com/seejohnrun/haste-server
        dest=/opt/haste-server/
