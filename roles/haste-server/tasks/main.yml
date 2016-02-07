@@ -8,6 +8,9 @@
       - npm
       - git
 
+- name: enable redis server
+  service: name=redis enabled=yes state=started
+
 - name: get latest haste-server from GitHub
   git: repo=https://github.com/seejohnrun/haste-server
        dest=/opt/haste-server/
