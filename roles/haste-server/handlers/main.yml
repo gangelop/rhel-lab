@@ -5,3 +5,6 @@
 
 - name: restart redis server
   service: name=redis state=restarted
+
+- name: reload firewalld
+  service: name=firewalld state=reloaded
